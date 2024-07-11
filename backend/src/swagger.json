@@ -1,0 +1,746 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "HealthCare",
+        "description": "API do sistema HealthCare",
+        "termOfService": "http://localhost:8080/terms",
+        "contact": {
+            "email": "pedrohbs67@hotmail.com"
+        },
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:8080",
+            "description": "API de teste"
+        }
+    ],
+    "paths": {
+        "/adicionarUsuario": {
+            "post": {
+                "summary": "Cadastro do Paciente",
+                "description": "Rota responsável por realizar o cadastro do Paciente",
+                "tags": [
+                    "Pacientes"
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Paciente"
+                            },
+                            "examples": {
+                                "paciente": {
+                                    "value": {
+                                        "nome": "Pedro",
+                                        "email": "pedrohbs67@hotmail.com",
+                                        "senha": "123"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "400": {
+                        "description": "Erro! Paciente já cadastrado!"
+                    },
+                    "201": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "$ref": "#/components/schemas/Paciente"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/selecionarUsuario/{id}": {
+            "get": {
+                "description": "Encontrar um usuário pelo ID",
+                "summary": "Encontrar um usuário pelo ID",
+                "tags": [
+                    "Pacientes"
+                ],
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Busca de um paciente pelo ID",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "401": {
+                        "description": "Erro! Você não está autenticado!"
+                    },
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "$ref": "#/components/schemas/Paciente"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/atualizarUsuario/{id}": {
+            "put": {
+                "description": "Rota para atualizar um usuário",
+                "summary": "Atualizar um usuário",
+                "tags": [
+                    "Pacientes"
+                ],
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID do usuário",
+                        "required": true
+                    }
+                ],
+                "requestBody": {
+                    "description": "Dados do Usuário",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "$ref": "#/components/schemas/Paciente"
+                            }
+                        }
+                    }
+                    },
+
+                    "responses": {
+                    "401": {
+                        "description": "Erro! Você não está autenticado!"
+                    },
+                    "201": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "$ref": "#/components/schemas/Paciente"
+                                }
+                            }
+                        }
+                    }
+                }
+                
+            }
+        },
+        "/deletarUsuario/{id}": {
+            "delete": {
+                "description": "Deletar um usuário pelo ID",
+                "summary": "Deletar usuário",
+                "tags": [
+                    "Pacientes"
+                ],
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID do usuário",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Usuário deletado com sucesso!"
+                    },
+                    "401": {
+                        "description": "Erro! Você não está autenticado!"
+                    }
+                }
+            }
+        },
+        "/listarUsuarios": {
+            "get": {
+                "description": "Rota para listar usuários",
+                "summary": "Rota para listar todos os usuários",
+                "security":[{"bearerAuth": []}],
+                "tags": [
+                    "Pacientes"
+                ],
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Paciente"
+                                },
+                                "examples": {
+                                    "paciente": {
+                                        "value": [
+                                            {
+                                                "nome": "Pedro",
+                                                "email": "pedro@hotmail.com",
+                                                "senha": "*****"
+                                            },
+                                            {
+                                                "nome": "Bahjet",
+                                                "email": "Bahjet@hotmail.com",
+                                                "senha": "*****"
+                                            }
+                                        ]
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Erro! Você não um administrador!"
+                    }
+                }
+            }
+        },
+        "/autenticarUsuario": {
+            "post": {
+                "description": "Rota de autenticação",
+                "summary": "Rota para autenticar o usuário",
+                "tags": [
+                    "Pacientes"
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Paciente"
+                            },
+                            "examples": {
+                                "paciente": {
+                                    "value": {
+                                        "email": "pedrohbs67@hotmail.com",
+                                        "senha": "***"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Usuario autenticado com sucesso!"
+                    },
+                    "400": {
+                        "description": "Erro ao realizar autenticação!"
+                    }
+                }
+            }
+        },
+        "/realizarComentario": {
+            "post": {
+                "description": "Rota para o paciente realizar o comentário sobre uma empresa",
+                "summary": "Rota para o paciente realizar o comentário sobre uma empresa",
+                "tags": [
+                    "Pacientes"
+                ],
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/adicionarExame": {
+            "post": {
+                "description": "Rota para o paciente armazenar um determinado exame em sua conta",
+                "summary": "Rota para o paciente armazenar um determinado exame em sua conta",
+                "tags": [
+                    "Pacientes"
+                ],
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/listarExames/{idUsuario}": {
+            "get": {
+                "description": "Rota para o paciente visualizar todos os exames armazenados em sua conta",
+                "summary": "Rota para o paciente visualizar todos os exames armazenados em sua conta",
+                "tags": [
+                    "Pacientes"
+                ],"security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/deletarExame/{idExame}": {
+            "delete": {
+                "description": "Rota para o paciente deletar um determinado exame de sua conta",
+                "summary": "Rota para o paciente deletar um determinado exame de sua conta",
+                "tags": [
+                    "Pacientes"
+                ], "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/adicionarEmpresa": {
+            "post": {
+                "description": "Rota para adicionar empresas!",
+                "summary": "Rota para adicionar empresas!",
+                "tags": [
+                    "Empresas"
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Paciente"
+                            },
+                            "examples": {
+                                "empresa": {
+                                    "value": {
+                                        "nome": "Empresa",
+                                        "email": "empresa@hotmail.com",
+                                        "senha": "*****",
+                                        "cnpj": "**.***.***/****-**",
+                                        "telefone": 1399999999,
+                                        "bairro": "Bairro",
+                                        "endereco": "Rua sem nome",
+                                        "cep": "00000-000",
+                                        "complemento": "Proximo do mercado"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "$ref": "#/components/schemas/Empresa"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Erro ao cadastrar! Algum dado já foi cadastrado anteriormente!"
+                    }
+                }
+            }
+        },
+        "/selecionarEmpresas": {
+            "get": {
+                "description": "Rota para listar empresas",
+                "summary": "Rota para listar todos as empresas",
+                "security":[{"bearerAuth": []}],
+                "tags": [
+                    "Empresas"
+                ],
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Empresa"
+                                },
+                                "examples": {
+                                    "paciente": {
+                                        "value": [
+                                            {
+                                                "nome": "Empresa",
+                                                "email": "empresa@hotmail.com",
+                                                "senha": "*****",
+                                                "cnpj": "**.***.***/****-**",
+                                                "telefone": 1399999999,
+                                                "bairro": "Bairro",
+                                                "endereco": "Rua sem nome",
+                                                "cep": "00000-000",
+                                                "complemento": "Proximo do mercado"
+                                            },
+                                            {
+                                                "nome": "Empresa",
+                                                "email": "empresa@hotmail.com",
+                                                "senha": "*****",
+                                                "cnpj": "**.***.***/****-**",
+                                                "telefone": 1399999999,
+                                                "bairro": "Bairro",
+                                                "endereco": "Rua sem nome",
+                                                "cep": "00000-000",
+                                                "complemento": "Proximo do mercado"
+                                            }
+                                        ]
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Erro! Você não um administrador!"
+                    }
+                }
+            }
+        }, 
+        "/selecionarEmpresa/{id}": {
+            "get": {
+                "description": "Rota de informações de uma empresa",
+                "summary": "Rota de informações de uma empresa",
+                "security":[{"bearerAuth": []}],
+                "tags": ["Empresas"],
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Empresa"
+                                },
+                                "examples": {
+                                    "paciente": {
+                                        "value": 
+                                            {
+                                                "nome": "Empresa",
+                                                "email": "empresa@hotmail.com",
+                                                "senha": "*****",
+                                                "cnpj": "**.***.***/****-**",
+                                                "telefone": 1399999999,
+                                                "bairro": "Bairro",
+                                                "endereco": "Rua sem nome",
+                                                "cep": "00000-000",
+                                                "complemento": "Proximo do mercado",
+                                                "altitude": "-1234567",
+                                                "longitude": "4321233"
+                                            }
+                                        
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Erro! Você não um administrador!"
+                    }
+                }
+            }
+        },
+        "/deletarEmpresa/{id}": {
+            "delete": {
+                "description": "Deletar uma empresa pelo ID",
+                "summary": "Deletar Empresa",
+                "tags": [
+                    "Empresas"
+                ],
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID da Empresa",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Empresa deletada com sucesso!"
+                    },
+                    "401": {
+                        "description": "Erro! Você não está autenticado!"
+                    }
+                }
+            }
+        },
+        "/atualizarEmpresa/{id}": {
+            "put": {
+                "description": "Rota para atualizar uma Empresa",
+                "summary": "Atualizar uma Empresa",
+                "tags": [
+                    "Empresas"
+                ],
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID da Empresa",
+                        "required": true
+                    }
+                ],
+                "requestBody": {
+                    "description": "Dados da Empresa",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "$ref": "#/components/schemas/Empresa"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "400": {
+                        "description": "Erro! Paciente já cadastrado!"
+                    },
+                    "201": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "$ref": "#/components/schemas/Empresa"
+                                }
+                            }
+                        }
+                    }
+                }
+                
+            }
+        },
+        "/listarEmpresasAbertas": {
+            "get": {
+                "description": "Rota para listar empresas abertas",
+                "summary": "Rota para listar empresas abertas",
+                "tags": [
+                    "Empresas"
+                ],
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/listarComentarios/{idEmpresa}": {
+            "get": {
+                "description": "Rota para listar os comentários de um empresa",
+                "summary": "Rota para listar os comentários de um empresa",
+                "tags": [
+                    "Empresas"
+                ],
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/atualizarSenha/{id}": {
+            "put": {
+                "description": "Rota para atualizar senha da empresa",
+                "summary": "Rota para atualizar senha da empresa",
+                "tags": [
+                    "Empresas"
+                ],
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/listarProfissionais/{idEmpresa}": {
+            "get": {
+                "description": "Rota para listar profissionais disponiveis por empresa",
+                "summary": "Rota para listar profissionais disponiveis por empresa",
+                "tags": [
+                    "Empresas"
+                ],
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/listarEspecialidades": {
+            "get": {
+                "description": "Rota para listar todos os tipos de especialidades",
+                "summary": "Rota para listar todos os tipos de especialidades",
+                "tags": [
+                    "Especialidades"
+                ],
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        }, 
+        "/adicionarEspecialidade/{idEmpresa}/{idEspecialidade}": {
+            "post": {
+                "description": "Rota para a empresa adicionar profissionais disponiveis por especialidade",
+                "summary": "Rota para a empresa adicionar profissionais disponiveis por especialidade",
+                "tags": [
+                    "Especialidades"
+                ],
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/informarDisponibilidade/{idDisponibilidade}": {
+            "put": {
+                "description": "Rota para a empresa atualizar o numero de profissionais disponiveis por especialidade",
+                "summary": "Rota para a empresa atualizar o numero de profissionais disponiveis por especialidade",
+                "tags": [
+                    "Especialidades"
+                ],
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/deletarEspecialidade/{idDisponibilidade}": {
+            "delete": {
+                "description": "Rota para a empresa deletar todos os profissionais disponiveis por especialidade",
+                "summary": "Rota para a empresa deletar todos os profissionais disponiveis por especialidade",
+                "tags": [
+                    "Especialidades"
+                ],
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/selecionarDisponibilidade/{idDisponibilidade}": {
+            "get": {
+                "description": "Rota para listar os profissionais disponiveis por especialidade de uma empresa (utilizada pela empresa)",
+                "summary": "Rota para listar os profissionais disponiveis por especialidade de uma empresa (utilizada pela empresa)",
+                "tags": [
+                    "Especialidades"
+                ],
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/selecionarEspecialidades/{idEspecialidade}": {
+            "get": {
+                "description": "Rota para listar os profissionais disponiveis por especialidade de uma empresa (utilizada pelo paciente)",
+                "summary": "Rota para listar os profissionais disponiveis por especialidade de uma empresa (utilizada pelo paciente)",
+                "tags": [
+                    "Especialidades"
+                ],
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "Paciente": {
+                "type": "object",
+                "properties": {
+                    "nome": {
+                        "type": "string"
+                    },
+                    "email": {
+                        "type": "string"
+                    },
+                    "senha": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "type": "number"
+                    }
+                }
+            },
+            "Empresa": {
+                "type": "object",
+                "properties": {
+                    "nome": {
+                        "type": "string"
+                    },
+                    "email": {
+                        "type": "string"
+                    },
+                    "senha": {
+                        "type": "string"
+                    },
+                    "cnpj": {
+                        "type": "string"
+                    },
+                    "telefone": {
+                        "type": "number"
+                    },
+                    "bairro": {
+                        "type": "string"
+                    },
+                    "endereco": {
+                        "type": "string"
+                    },
+                    "cep": {
+                        "type": "string"
+                    },
+                    "complemento": {
+                        "type": "string"
+                    },
+                    "longitude": {
+                        "type": "string"
+                    },
+                    "latitude": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "securitySchemes": {
+            "bearerAuth": {
+                "type": "http",
+                "scheme": "bearer",
+                "bearerFormat": "JWT"
+            }
+        }
+    }
+}

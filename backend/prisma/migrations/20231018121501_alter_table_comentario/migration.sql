@@ -1,0 +1,2 @@
+-- AlterTable
+ALTER TABLE `comentario` ADD COLUMN `dataPublicacao` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3);

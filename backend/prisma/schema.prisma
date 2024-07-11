@@ -1,0 +1,75 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Empresa {
+  idEmpresa                    Int                            @id @default(autoincrement())
+  nomeEmpresa                  String
+  emailEmpresa                 String                         @unique
+  cpnjEmpresa                  String                         @unique
+  senhaEmpresa                 String
+  telefoneEmpresa              String
+  bairroEmpresa                String
+  enderecoEmpresa              String
+  cepEmpresa                   String
+  complementoEmpresa           String
+  longitude                    String
+  latitude                     String
+  DisponibilidadeEspecialidade DisponibilidadeEspecialidade[]
+  Comentario                   Comentario[]
+  statusEmpresa                Boolean                        @default(false)
+}
+
+model Usuario {
+  idUsuario    Int          @id @default(autoincrement())
+  nomeUsuario  String
+  emailUsuario String       @unique
+  roleUsuario  String
+  senhaUsuario String
+  Comentario   Comentario[]
+  Exame        Exame[]
+}
+
+model Exame {
+  idExame          Int     @id @default(autoincrement())
+  nomeExame        String?
+  nomeImagem       String
+  usuarioIdUsuario Usuario @relation(fields: [idUsuario], references: [idUsuario])
+  idUsuario        Int
+  dataCriacao      String
+}
+
+model Especialidade {
+  idEspecialidade              Int                            @id @default(autoincrement())
+  nomeEspecialidade            String
+  DisponibilidadeEspecialidade DisponibilidadeEspecialidade[]
+}
+
+model DisponibilidadeEspecialidade {
+  idDisponibilidade       Int           @id @default(autoincrement())
+  quantidadeEspecialidade Int
+  Especialidade           Especialidade @relation(fields: [idEspecialidade], references: [idEspecialidade])
+  Empresa                 Empresa       @relation(fields: [idEmpresa], references: [idEmpresa])
+  idEspecialidade         Int
+  idEmpresa               Int
+}
+
+
+model Comentario {
+  idComentario       Int     @id @default(autoincrement())
+  situacaoFila       Int?
+  conteudoComentario String
+  dataPublicacao     String
+  Usuario            Usuario @relation(fields: [idUsuario], references: [idUsuario])
+  idUsuario          Int
+  Empresa            Empresa @relation(fields: [idEmpresa], references: [idEmpresa])
+  idEmpresa          Int
+}

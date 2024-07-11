@@ -1,0 +1,63 @@
+.botaoMenu{
+    display: flex;
+    gap: 2;
+    user-select: none;
+    align-items: center;
+    background-color: transparent ;
+    border-radius: 8px;
+    color: black;
+    border: 2px solid rgba(232, 232, 232, 1);
+    padding: 0px 5px;
+    font-size: 15px;
+}
+
+.botaoMenu:hover{
+    background-color: transparent;
+    border: 2px solid rgba(184, 185, 190, 1);
+}
+
+.chevronDown{
+    height: 1rem;
+    width: 2rem;
+}
+
+.dropdownMenuContent{
+    width: 170px;
+    background-color:white;
+    padding: 6px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    border: 2px solid rgba(232, 232, 232, 1);
+    border-radius: 8px;
+    gap: 2px;
+}
+
+.menuItem{
+    gap: 5px;
+    display:flex;
+    align-items:center;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 7px;
+    transition: 0.5s;
+}
+.menuItem:hover{
+    background-color: rgba(232, 232, 232, 1);
+
+}
+
+.menuItemSair{
+    gap: 5px;
+    display:flex;
+    align-items:center;
+    cursor: pointer;
+    border-radius: 7px;
+    color: red;
+    transition: 0.5s;
+    cursor: pointer !important;
+}
+.menuItemSair:hover{
+    color: red !important;
+    background-color: rgba(255, 217, 217, 1) !important;
+}

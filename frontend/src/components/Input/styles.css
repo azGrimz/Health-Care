@@ -1,0 +1,14 @@
+input{
+    background-color: rgba(208, 231, 253, 0.4);
+    max-width: 100%;
+    height: 45px;
+    border-radius: 2px;
+    border: none;
+    padding-left: 23px;
+    margin-bottom: 8px;
+}
+
+label{
+    font-size: 15px;
+    white-space: nowrap; 
+}

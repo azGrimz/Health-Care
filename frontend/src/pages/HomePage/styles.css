@@ -1,0 +1,179 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    box-sizing: border-box;
+}
+.tela-total-homepage{
+    min-height: 100vh;
+
+}
+.header-homepage{
+    height: 94px;
+}
+.imagem-logo-header{
+    width: 142px;
+    height: 94px;
+}
+.parte-esquerda-header-homepage{
+    width: 50%;
+}
+.parte-direita-header-homepage{
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+}
+.botao-entrar-homepage{
+    border: 2px solid rgba(30, 205, 255, 1);
+    color: rgba(30, 205, 255, 1);
+    background-color: transparent;
+    width: 164px;
+    height: 43px;
+    border-radius: 10px;
+    font-size: 15px;
+    margin-right: 30px;
+    font-weight: bold;
+}
+.botao-entrar-homepage:hover{
+    background-color: transparent;
+    border: 2px solid rgb(52, 150, 230);
+    color: rgb(52, 150, 230);
+}
+.botao-registrar-homepage{
+    background-color: rgba(30, 205, 255, 1);
+    width: 164px;
+    height: 43px;
+    border-radius: 10px;
+    font-size: 15px;
+    margin-right: 30px;
+    color: white;
+    font-weight: bold;
+}
+.botao-registrar-homepage:hover{
+    background-color: rgb(52, 150, 230);    
+}
+.main-homepage{
+    background-image:  url('../../img/imagemFundo/imagem-homepage.png');
+    min-height: 83vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-origin: border-box;
+    display: flex;
+}
+.parte-direita-main-homepage{
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.div-centralizadora-healthcare-homepagee{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 70px ;
+}
+.icone-plus{
+    margin-top: 180px;
+}
+.icone-plus-branco{
+    margin-bottom: 300px;
+}
+.icone-plus-branco2{
+    margin-top: 300px;
+}
+.healthcare-homepage{
+    height: 160px;
+    width: 375px;
+}
+.health-logo-homepage{
+    color: white;
+    font-size: 96px;
+    font-weight: bold;
+    height: 90px;
+}
+.care-logo-homepage{
+    color: rgba(0, 77, 140, 1);
+    font-size: 64px;
+    font-weight: bold;
+    height: 70px;
+}
+.medical-logo-homepage{
+    width: 147px;
+    height: 29px;
+    font-size: 31px;
+    color: rgba(119, 243, 255, 1);
+    transform: rotate(90deg);
+    margin: -55px;
+    margin-top: 1px;
+    font-weight: bold;
+}
+.parte-esquerda-main-homepage{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.div-descricao-homepage{
+    width: 400px;
+    margin-bottom: 70px;
+}
+.titulo-descricao-homepage{
+    color: white;
+    font-size: 32px;
+    font-weight: bold;   
+}
+.descricao-homepage{
+    margin-top: 25px ;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    margin-left: 10px;
+}
+.div-centralizadora-healthcare-homepagee-responsivo{
+    display: none;
+}
+
+@media (max-width: 745px) {
+    .parte-direita-main-homepage{
+        display: none;
+    }
+    .parte-esquerda-main-homepage{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .div-centralizadora-healthcare-homepagee-responsivo{
+        margin-bottom: 60px;
+        display: flex;
+    }
+    .medical-logo-homepage{
+        margin-top: 70px;
+    }
+    .icone-plus{
+        display: none;
+    }
+    .icone-plus-branco{
+        display: none;
+    }
+    .icone-plus-branco2{
+        display: none;
+    }
+    .medical-logo-homepage-responsivo{
+        font-size: 31px;
+        color: rgba(119, 243, 255, 1);
+        font-weight: bold;
+    }
+    .health-logo-homepage{
+        font-size: 90px;
+    }
+    .botao-registrar-homepage{
+        width: 95px;
+        margin-right: 10px;
+    }
+    .botao-entrar-homepage{
+        width: 95px;
+        margin-right: 10px;
+    }
+}

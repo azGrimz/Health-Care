@@ -1,0 +1,77 @@
+.div-total{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 99.9vh;
+    background-color: white;
+    padding: 100px;
+}
+
+.div-conteudo{ 
+    display:flex; 
+}
+
+.aside-esquerdo{
+    display:grid;
+}
+
+.titulo-404{
+    margin-top:31px;
+    color: rgba(118, 120, 124, 1);
+    font-size: 46px
+}
+
+.paragrafo-404{
+    color: rgba(183, 189, 197, 1);
+    font-size: 22px
+}
+
+.vontar-inicio{
+    font-size: 16px;
+    width: 140px;
+    height: 40px;
+    border-radius: 6px;
+}
+
+.link-inicio{
+    width: 140px;
+    height: 40px;
+}
+
+.imagem404{
+    width: 40rem;
+    height: 25rem;
+}
+
+@media screen and (max-width: 1055px){
+    .div-total{
+        padding: 30px;
+    }
+    .div-conteudo{
+        display: grid;
+        gap: 2rem;
+    }
+    .aside-esquerdo{
+        gap: 30px
+    }
+    .titulo-404{
+        margin-top:31px;
+        color: rgba(118, 120, 124, 1);
+        font-size: 35px;
+    }
+    .paragrafo-404{
+        color: rgba(183, 189, 197, 1);
+        font-size: 18px;
+        max-width: 30rem;
+    }
+
+    .aside-direito{
+        display: flex;
+        justify-content: center;
+    }   
+    .imagem404{
+        max-width: 20rem;
+        height: 15rem;
+    }
+
+}

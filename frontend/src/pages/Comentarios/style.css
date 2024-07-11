@@ -1,0 +1,64 @@
+.imagemComentario{
+    background-color: red;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items:center;
+    justify-content: center;
+    border-radius: 50px;
+    color:white;
+    font-size: 24px;
+}
+
+.horarioEnviado{
+    color:rgba(140, 137, 137, 1);
+    display: flex;
+    justify-content: right;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.dadosEmpresa{
+    display: flex;
+    gap: 10px;
+    margin: 10px 0;
+
+}
+
+.quantidadeComentarios{
+    color:rgba(140, 137, 137, 1);
+    font-size: 13px;
+}
+
+.nomeEmpresa{
+    font-size: 16px;
+}
+
+.containerUsuarioWeb{
+    gap: 10px;
+    display:flex;
+}
+
+.nomeData{
+    display: flex;
+    gap: 8px;
+    margin-top: 4px;
+}
+
+.dataComentario{
+    color:rgba(140, 137, 137, 1);
+    font-size: 13px;
+    margin-top: 4px;
+}
+
+.comentariosWeb{
+    border: 1px solid rgba(221, 218, 218, 1);
+    border-radius: 8px;
+    max-width: 800px;
+    padding: 18px;
+    margin: -5px 0px 10px 50px;
+}
+
+.totalComentarios{
+    margin-top: 30px;
+}

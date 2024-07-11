@@ -1,0 +1,19 @@
+.parte-superior{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center; 
+    max-width: 100%;
+}
+
+.descricao-logo{
+    color: rgba(112, 115, 119, 1);
+    margin-bottom: 10px;
+    font-size: 15px;
+    max-width: 100%;
+ }
+
+.titulo{
+    color:rgba(73, 187, 198, 1);
+    font-size:20px;
+}

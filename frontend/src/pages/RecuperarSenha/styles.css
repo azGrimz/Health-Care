@@ -1,0 +1,11 @@
+.formulario-recuperar-senha{
+    display: flex;
+    flex-direction: column;
+    justify-content: right;
+    margin-top: 25px;
+    min-width: 100%;
+}
+
+.responsividade{
+    max-width: 303px;
+}

@@ -1,0 +1,246 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.container-total-especialidade-disponivel {
+    align-items: center;
+    justify-content: center;
+    background: rgba(242, 242, 242, 1);
+    display: flex;
+    padding: 0px 40px;  
+}
+
+.responsivo-disponivell{
+    padding: 46px 64px;
+    background-color:white;
+    border-radius: 8px 8px 0px 0px;
+    width: 1050px;
+    margin-top: 40px;
+    height:83.9vh;
+    box-shadow: 1px 2px 5px 0px rgb(156, 156, 156);
+}
+
+.form-especialidades{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    gap: 10px;
+    margin-bottom: 45px;
+}
+
+.titulo-adicionar-especialidade-disponivel{
+    font-size: 30px;
+    color:rgba(19, 135, 241, 1);
+    font-family: "Arimo", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: italic;
+    margin-top:3px;
+}
+.inputs-form-especialidades{
+    display:flex;
+    gap:16px;
+}
+
+.escolha-especialidade-disponivel{
+    border: none;
+    width: 185px;
+    height: 40px;
+    background-color:rgba(241, 243, 254, 1);
+    color:rgba(112, 115, 119, 1);
+    font-size: 13px;
+    border-radius: 8px;
+    padding-left:18px ;
+}
+
+.input-quantidade-disponivel{
+    border: none;
+    width: 60px;
+    height: 40px;
+    background-color:rgba(241, 243, 254, 1);
+    color:rgba(112, 115, 119, 1);
+    font-size: 13px;
+    border-radius: 8px;
+    padding-left:18px ;
+}
+
+.botao-especialidade-disponivel{
+    height: 40px;
+    width: 111px;
+    background-color: rgba(0, 234, 23, 1);
+    border-radius: 8px;
+    transition: 1s;
+    color: white;
+    font-size: 13px;
+}
+.botao-especialidade-disponivel:hover{
+    background-color:rgba(66, 255, 186, 1);
+}
+
+.styled-table-disponivel{
+    border-collapse: separate;
+    border-spacing: 0 8px;
+    font-size: 13px;
+    min-width: 100%;
+}
+
+.thead-table th{
+    background-color: rgba(19, 135, 241, 1);
+    color: white;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 900;
+    padding: 0px 0px 5px 0px;
+}
+
+th:first-child{
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px; 
+}
+th:last-child{
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px; 
+}
+/*************************************************/
+
+tr{
+    text-align:center;
+    padding: 5px;
+}
+td {
+    margin-top: 5px;
+    background-color: rgba(234, 236, 244, 1);
+    padding: 10px;
+    font-size: 0.875rem;
+    color: rgba(112, 115, 119, 1);
+}
+
+td:first-child{
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px; 
+}
+
+td:last-child{
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px; 
+}
+/***********************************/
+.td-botoes{
+ 
+}
+.botao-editar-disponivel{
+    border-radius: 5px;
+    height: 25px;
+    padding: 0px 7px;
+    background-color: rgb(244, 198, 35);
+}
+.botao-deletar-disponivel{
+    border-radius: 5px;
+    margin-left: 5px;
+    height: 25px;
+    padding: 0px 7px;
+    background-color: rgb(212, 13, 13);
+}
+.img-foto{
+    width: 12px;
+    height: 12px;
+}
+.botao-deletar-disponivel:hover{
+    background-color: rgb(245, 97, 97);
+}
+.botao-editar-disponivel:hover{
+    background-color:rgb(255, 226, 122);
+}
+
+/*-----------------------------------------------------------------*/
+.switch {
+    font-size: 15px;
+    position: relative;
+    display: inline-block;
+    width: 55px;
+    height: 30px;
+    margin-top:6px ;
+   }
+   
+   .switch input {
+    opacity: 1;
+    width: 0;
+    height: 0;
+    
+   }
+   
+   .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0px;
+    background: rgba(249, 112, 112, 1);
+    transition: .4s;
+    border-radius: 30px;
+    border: 1px solid #ccc;
+   }
+   
+   .slider:before {
+    position: absolute;
+    content: "";
+    height: 1.9em;
+    width: 1.9em;
+    border-radius: 16px;
+    left: 1.2px;
+    top: 0;
+    bottom: 0;
+    background-color: white;
+    box-shadow: 0 2px 5px #999999;
+    transition: .4s;
+   }
+   
+   input:checked + .slider {
+    background-color: #5fdd54;
+    border: 1px solid transparent;
+   }
+   
+   input:checked + .slider:before {
+    transform: translateX(1.5em);
+    
+   }
+/*------------------------------------------------------------------*/
+@media (max-width: 1149px) {
+    .escolha-especialidade-disponivel{
+        width: 110px;
+        padding-left: 8px;
+    }
+    .input-quantidade-disponivel{
+        width: 40px;
+        padding-left: 8px;
+    }
+    .botao-especialidade-disponivel{
+        width: 70px;
+    }
+    .inputs-form-especialidades{
+        gap: 8px;
+    }
+    
+}
+@media (max-width: 800px) {
+    .titulo-adicionar-especialidade-disponivel{
+        font-size: 22px;
+    }
+}
+@media (max-width: 708px) {
+    .form-especialidades{
+        flex-direction: column;
+        align-items:left;
+    }
+    .responsivo-disponivell{
+        padding: 20px 10px;
+    }
+}
+
+@media(max-width: 450px){
+    .container-total-especialidade-disponivel{
+        padding:0;
+    }
+}

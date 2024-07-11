@@ -1,0 +1,79 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    box-sizing: border-box; /* Adicionando o box-sizing para evitar problemas com tamanhos */
+}
+
+.container-total {
+    min-height: 100vh;
+    display: flex;
+    flex-wrap: wrap; /* Adicionando flex-wrap para que os elementos quebrem para a próxima linha em telas menores */
+}
+
+.parte-esquerda-entrar {
+    min-width: 65%;
+    background-image: url("../../img/imagemFundo/imagem-entrar.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-origin: border-box;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 20px; /* Adicionei um padding para melhor espaçamento em telas menores */
+}
+
+.parte-direita-entrar {
+    min-width: 35%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px; /* Adicionei um padding para melhor espaçamento em telas menores */
+}
+
+.responsivo {
+    max-width: 100%; /* Definindo a largura máxima para que o elemento se ajuste à tela */
+}
+
+.formulario-entrar {
+    display: flex;
+    flex-direction: column;
+    justify-content: right;
+    margin-top: 25px;
+    width: 100%;
+    max-width: 303px; /* Alterando de width para max-width para que ele se ajuste em telas menores */
+}
+
+.Propaganda-entrar {
+    color: white;
+    font-size: 80px;
+    font-weight: bold;
+    padding-left: 50px;
+    padding-top: 8px;
+}
+.inputEmail{
+    background-color: rgba(208, 231, 253, 0.4);
+    max-width: 100%;
+    height: 45px;
+    border-radius: 2px;
+    border: none;
+    padding-left: 23px;
+    margin-bottom: 8px;
+}
+.inputSenha{
+    background-color: rgba(208, 231, 253, 0.4);
+    max-width: 100%;
+    height: 45px;
+    border-radius: 2px;
+    border: none;
+    padding-left: 23px;
+    margin-bottom: 8px;
+}
+@media (max-width: 969px) {
+    .parte-esquerda-entrar {
+        display: none;
+    }
+    .parte-direita-entrar {
+        min-width: 100%;
+    }
+}
